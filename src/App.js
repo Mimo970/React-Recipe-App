@@ -1,23 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import Pages from "./componets/Pages/Pages";
+import { Category } from "./componets/Category/Category";
+import { BrowserRouter, Link } from "react-router-dom";
+import Search from "./componets/Search/Search";
+import { FaHome } from "react-icons/fa";
+import Footer from "./componets/Footer/Footer";
+import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <BrowserRouter>
+        <div className="MainContainer">
+          <nav className="MainNav">
+            <div className="innerMainNav">
+              <Link className="innerMainLogo" to={"/"}>
+                <FaHome />
+                Recipes
+              </Link>
+
+              <Search />
+            </div>
+            <Category />
+          </nav>
+          <div className="MainWrapper">
+            <Pages />
+          </div>
+          <Footer />
+        </div>
+      </BrowserRouter>
     </div>
   );
 }

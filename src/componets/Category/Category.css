@@ -1,0 +1,33 @@
+.category-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /* background-color: aqua; */
+}
+
+.category-listing {
+    /* background-color: rgb(225, 225, 225); */
+    margin: 1%;
+    padding:.5%;
+    border-radius: 10%;
+    text-decoration: none;
+}
+
+.category-listing:hover {
+    color:orange;
+    /* background-color: rgb(190, 190, 190); */
+    text-decoration: underline;
+}
+
+.category-listing:active{
+    
+    text-decoration: underline;
+}
+
+.category-listing:focus{
+    
+    text-decoration: underline;
+} 
+:target {
+    text-decoration: underline;
+}
