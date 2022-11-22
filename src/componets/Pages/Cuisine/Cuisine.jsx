@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "./Cuisine.css";
-
+import { AppContext } from "../../useContext/useContext";
 function Cuisine() {
   let params = useParams();
   const [cuisine, setCuisine] = useState([]);
+
   useEffect(() => {
     getData(params.type);
   }, [params.type]);
@@ -25,12 +26,18 @@ function Cuisine() {
     }
   }
 
-  console.log(params.type);
+  const { isDarkModeOn, setIsDarkModeOn, toggleDarkMode } =
+    useContext(AppContext);
   return (
     <div id="container">
       {cuisine.map((item) => {
         return (
-          <div className="wrapper" key={item.id}>
+          <div
+            className={`wrapper ${
+              isDarkModeOn ? "dark-cuisine-searched-wrapper" : ""
+            }`}
+            key={item.id}
+          >
             <div className="card">
               <img
                 className="img"

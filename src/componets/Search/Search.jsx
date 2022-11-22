@@ -1,33 +1,114 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { GrClose, GrSearch } from "react-icons/gr";
-import { Form, useNavigate } from "react-router-dom";
+import { AiFillExclamationCircle } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
+// import { search } from "superagent";
+import { AppContext } from "../useContext/useContext";
 import "./Search.css";
 
 const Search = () => {
-  const [input, setInput] = useState("");
   const navigate = useNavigate();
 
+  const [input, setInput] = useState("");
+  const [inputWarning, setInputWarning] = useState(false);
+  const [inputWarningClass, setInputWarningClass] = useState(false);
+
   const submitHandler = (e) => {
-    e.preventDefault();
-    navigate("/searched/" + input);
+    if (input === "") {
+      e.preventDefault();
+      setInputWarning(true);
+    } else {
+      e.preventDefault();
+      navigate("/searched/" + input);
+    }
   };
 
+  const deleteHandler = (e) => {
+    e.preventDefault();
+    setInput("");
+  };
+
+  const changeHandler = (e) => {
+    setInput(e.target.value);
+    setInputWarning(false);
+    setInputWarningClass(false);
+  };
+
+  const warningButtonHandler = (e) => {
+    e.preventDefault();
+    setInputWarningClass(true);
+  };
+  console.log(input);
+  const { isDarkModeOn, setIsDarkModeOn, toggleDarkMode } =
+    useContext(AppContext);
+
   return (
-    <form className="search-container" onSubmit={submitHandler}>
-      <div className="search-wrapper">
-        <input
-          className="search-input"
-          onChange={(e) => setInput(e.target.value)}
-          type="text"
-          value={input}
-          placeholder="Search Recipes"
-        />
-        <button className="search-buttons">
-          <GrClose className="svg-close" size="43" />
-          <GrSearch className="svg-search" size="30" />
-        </button>
-      </div>
-    </form>
+    <>
+      <form className="search-container" onSubmit={submitHandler}>
+        <div className="search-wrapper">
+          <input
+            className="search-input"
+            onChange={changeHandler}
+            type="text"
+            value={input}
+            placeholder="Search Recipes"
+          />
+          <div className="search-buttons">
+            {/* <button onClick={deleteHandler} className="svg-close">
+              <GrClose size="25" id="thing1" />
+            </button> */}
+            <button onClick={submitHandler} className="svg-search">
+              <GrSearch size="32" />
+            </button>
+            <div className="hidden">Search</div>
+          </div>
+        </div>
+      </form>
+      <button id="deleter" onClick={deleteHandler}>
+        <GrClose id="deleter-svg" size="25" />
+      </button>
+      {inputWarning && (
+        <>
+          {/* <div
+            className={`input-warning ${
+              inputWarningClass === true ? "hidden-warning" : ""
+            }`}
+          > */}
+          <div
+            className={`input-warning ${
+              isDarkModeOn === true ? "dark-input-warning" : ""
+            } ${inputWarningClass === true ? "hidden-warning" : ""}`}
+          >
+            <div
+              className={`exclamation-svg ${
+                isDarkModeOn === true ? "dark-exclamation-svg" : ""
+              }`}
+            >
+              <AiFillExclamationCircle size="20" />
+            </div>
+            <div
+              className={`warning-text ${
+                isDarkModeOn === true ? "dark-warning-text" : ""
+              }`}
+            >
+              Please fill out this field.
+            </div>
+            <button
+              onClick={warningButtonHandler}
+              className="input-warning-button"
+              // className={`input-warning-button ${inputWarningClass === true ? "hidden" : ""}`}
+            >
+              <GrClose
+                className={`input-warning-delete ${
+                  isDarkModeOn === true ? "dark-input-warning-delete" : ""
+                }`}
+                size="20"
+              />
+            </button>
+          </div>
+        </>
+      )}
+    </>
   );
 };
 

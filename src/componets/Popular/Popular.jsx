@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 // import { Splide, SplideSlide } from "@splidejs/react-splide";
 // import "@splidejs/splide/dist/css/splide.min.css";
 // import styled from "styled-components";
+import { AppContext } from "../useContext/useContext";
 import { Link } from "react-router-dom";
 import "./Popular.css";
 
@@ -26,22 +27,26 @@ function Popular() {
       localStorage.setItem("popular", JSON.stringify(apiRecipies));
     }
   }
-  console.log(popularItems);
-
+  const { isDarkModeOn, setIsDarkModeOn, toggleDarkMode } =
+    useContext(AppContext);
   return (
     <div className="top-level-container">
       <h3 className="popular-title">Popular Recipes</h3>
       <div id="container">
         {popularItems.map((item) => {
           return (
-            <div className="wrapper" key={item.id}>
+            <div
+              className={`wrapper ${isDarkModeOn ? "dark-wrapper" : ""}`}
+              key={item.id}
+            >
               <div className="card">
                 <img className="img" src={item.image} alt="popular food" />
                 <Link id="title" to={"recipe/" + item.id}>
                   <b>{item.title}</b>
                 </Link>
-                <div>
-                  <p id="likes">{item.aggregateLikes} Likes</p>
+                <div className="likes-wrapper">
+                  <div id="likes">{item.aggregateLikes}</div>
+                  <div id="likes-word"> Likes</div>
                 </div>
               </div>
             </div>

@@ -1,38 +1,13 @@
-.MainContainer {
-
+.app-container {
+    /* background-color: rgb(74, 74, 74); */
 }
 
-.MainNav { 
-  background-color: rgb(61, 61, 61);
-  min-width: 100%;
-  padding-top: 1%;
-  padding-left: 2%;
-  padding-right: 2%;
-  padding-bottom: 0%;
-  /* display: grid; */
-
-
+.dark-mode {
+    background-color: rgb(49, 49, 49);
+    transition-duration: 100ms;
+    color: rgb(194, 194, 194);
 }
 
-.MainNav svg {
-    font-size: 2rem;
-}
-
-.innerMainNav {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.innerMainLogo {
-  text-decoration: none;
-  font-size: 1.5rem;
-  font-weight: 400;
-  margin-left: 5%;
-}
+/* rgb(194, 194, 194) */
 
 
-.MainWrapper {
-    margin: 3% 10%;
-}

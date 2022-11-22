@@ -1,27 +1,22 @@
 import Pages from "./componets/Pages/Pages";
-import { Category } from "./componets/Category/Category";
 import { BrowserRouter, Link } from "react-router-dom";
-import Search from "./componets/Search/Search";
-import { FaHome } from "react-icons/fa";
 import Footer from "./componets/Footer/Footer";
+import Navbar from "./componets/Navbar/Navbar";
+
 import "./App.css";
+import { useContext } from "react";
+import { AppContext } from "./componets/useContext/useContext";
 
 function App() {
+  const { isDarkModeOn, setIsDarkModeOn } = useContext(AppContext);
+
   return (
-    <div>
+    <div
+      className={`app-container ${isDarkModeOn === true ? "dark-mode" : ""}`}
+    >
       <BrowserRouter>
         <div className="MainContainer">
-          <nav className="MainNav">
-            <div className="innerMainNav">
-              <Link className="innerMainLogo" to={"/"}>
-                <FaHome />
-                Recipes
-              </Link>
-
-              <Search />
-            </div>
-            <Category />
-          </nav>
+          <Navbar />
           <div className="MainWrapper">
             <Pages />
           </div>

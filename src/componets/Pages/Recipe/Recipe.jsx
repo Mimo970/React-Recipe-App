@@ -7,7 +7,7 @@ const Recipe = () => {
   const { name } = useParams();
 
   const [details, setDetails] = useState([]);
-  const [diet, setDiet] = useState([]);
+  // const [diet, setDiet] = useState([]);
 
   // const ingredStyleObj = {
   //   fontSize: "100%",
@@ -47,13 +47,15 @@ const Recipe = () => {
     fetchDetails();
   }, [name]);
 
-  console.log(name);
-  console.log("this is the diet list", diet);
-
   return (
     <div className="container">
       <div className="main-wrapper">
         <h2 className="title">{details.title}</h2>
+        <h3
+          className="instrutions-summary"
+          dangerouslySetInnerHTML={{ __html: details.summary }}
+          style={summaryStyleObj}
+        ></h3>
         <img src={details.image} alt="" />
         <div className="secondary-wrapper">
           <div className="table-wrapper">
@@ -71,11 +73,6 @@ const Recipe = () => {
           </ul>
           <b className="instructions-title">Summary</b>
           <div className="instrutions-summary-wrapper">
-            <h3
-              className="instrutions-summary"
-              dangerouslySetInnerHTML={{ __html: details.summary }}
-              style={summaryStyleObj}
-            ></h3>
             <b className="instructions-title">Instructions</b>
             <h3
               className="instrutions-summary"

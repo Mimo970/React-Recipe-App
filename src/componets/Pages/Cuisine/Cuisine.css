@@ -10,6 +10,10 @@
     gap: 1.5rem !important;
 
 }
+
+.dark-cuisine-searched-wrapper {
+    background-color: rgb(119, 119, 119) !important;
+}
  
 .wrapper { 
     display: grid; 

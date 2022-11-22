@@ -11,6 +11,11 @@
     gap: 1.5rem !important;
 
 }
+
+.dark-wrapper {
+    background-color: rgb(119, 119, 119) !important;
+
+}
  
 .wrapper { 
     display: grid; 
@@ -19,7 +24,8 @@
     /* max-width: 100%; */
     margin: 0%;
     padding: 0%;
-    background-color:rgb(255, 255, 255);
+    /* background-color: aqua !important; */
+    /* background-color:rgb(255, 255, 255); */
 }
 
 .card {
@@ -38,15 +44,27 @@
 #title {
     margin-top: 4%;
     /* margin-left: 22%; */
-    color:black;
+    color:rgb(0, 0, 0);
     text-decoration: none;
 }
 
 #title:hover {
     color: rgb(255, 175, 36);
     text-decoration: underline;
+    /* text-decoration: underline;
+    text-decoration-color: rgb(0, 255, 128);
+    text-underline-offset: 8px; */
+}
+
+.likes-wrapper {
+    display: flex;
+    flex-direction: row;
+    color: rgb(0, 0, 0);
 }
 
 #likes {
+    font-weight: 500;
     margin-left: 8%;
+    margin-right: 1.5%;
+    color: rgb(0, 0, 0);
 }

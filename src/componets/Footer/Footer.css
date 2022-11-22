@@ -1,5 +1,7 @@
 .footer-container {
     border-top: 1px solid rgb(238, 238, 238);
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
 .footer-items-container {
@@ -16,10 +18,13 @@
 
 .social-icons {
     /* margin-right: 0%; */
+    min-width: 80px;
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .middle-icon {
-    margin-left: 1%;
-    margin-right: 1%;
+    /* margin-left: 11%;
+    padding-right: 11%; */
 }

@@ -1,15 +1,16 @@
 import { NavLink } from "react-router-dom";
 import "./Category.css";
-
-import React from "react";
+import { AppContext } from "../useContext/useContext";
+import React, { useContext } from "react";
 
 export const Category = () => {
+  const { isDarkModeOn, setIsDarkModeOn, toggleDarkMode } =
+    useContext(AppContext);
   return (
-    <ol className="category-list">
-      <NavLink className="category-listing" to={"/type/dessert"}>
-        <h4>Dessert</h4>
-      </NavLink>
+    // <ol className={`category-list ${isDarkModeOn && "dark-mode-listing"}`}>
+    <ol className={`category-list ${isDarkModeOn ? "dark-list" : ""}`}>
       <NavLink className="category-listing" to={"/cuisine/Italian"}>
+        {/* <h4 className={`${isDarkModeOn ? "dark" : ""}`}>Italian</h4> */}
         <h4>Italian</h4>
       </NavLink>
       <NavLink className="category-listing" to={"/cuisine/Chinese"}>

@@ -1,0 +1,85 @@
+.MainNav { 
+  background-color: rgb(255, 255, 255);
+  min-width: 100%;
+  padding-top: 1%;
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-bottom: 0%;
+  box-shadow:0px 1px 3px #c5c5c5;
+  position: sticky;
+  top: 0px;
+   height: 9.5rem;
+  z-index: 9999;
+  transition-duration: 500ms;
+}
+
+.MainNav.hide {
+  top:-9.5rem;
+}
+
+.MainNav svg {
+    font-size: 3rem;
+}
+
+.innerMainNav {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 16.7%;
+    /* max-width: 80%; */
+}
+
+.dark-home { 
+  color: rgb(86, 86, 86) !important;
+}
+
+.dark-home:hover {
+  background: rgb(57, 57, 57) !important;
+}
+
+.dark {
+  color: rgb(86, 86, 86) !important;
+  
+}
+
+.dark:hover {
+  background: rgb(57, 57, 57) !important;
+}
+
+
+.innerMainLogo {
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-left: 5%;
+  color:black;
+}
+
+.innerMainLogo:hover {
+  background-color:rgb(245, 245, 245);
+  cursor: pointer;
+  /* padding: 1%; */
+  border-radius: 20%;
+}
+
+
+.MainWrapper {
+    margin: 3% 10%;
+}
+
+.dark-mode-svg {
+  background-color:transparent;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  display: flex;
+  margin-bottom: .5%;
+}
+
+.dark-mode-svg:hover {
+  background-color:rgb(245, 245, 245);
+  cursor: pointer;
+  padding: 0%;
+  border-radius: 50%;
+}
