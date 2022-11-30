@@ -1,0 +1,133 @@
+.carousel-container {
+    /* border: 1px solid black; */
+}
+
+.dark-carousel {
+    background-color: rgb(119, 119, 119) !important;
+}
+.veg-recipes-titles {
+
+@media screen and (max-width: 800px) {
+    padding-top: 10%;
+    }
+
+    @media screen and (max-width: 600px) {
+    padding-top: 15%;
+       font-size: 1rem;
+
+    }
+
+    @media screen and (max-width: 430px) {
+    padding-top: 20%;
+    font-size: .9rem;
+    }
+
+}
+
+.carousel-card{
+    background-color: rgb(244, 244, 244);
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    /* margin-top: 0.7rem; */
+    /* padding-bottom: 15%; */
+    /* border: 2px solid black; */
+    border-radius: 20px;
+    min-height: 100%;
+    max-height: 100%;
+
+    @media screen and (max-width: 800px) {
+        display: flex;
+        flex-direction: column;
+        // padding-left: 110%;
+        max-width: 100%;
+        padding: .5%;
+        padding-right: 0%;
+        padding-left: 0%;
+        font-size: 1rem;
+
+        // min-height: 100%;
+        // max-height: 100%;
+    }
+}
+
+.carousel-card img {
+    /* border-radius: 10px; */
+      object-fit: cover;
+      width: 100%;
+}
+
+.carousel-title {
+    /* display: flex;
+    justify-content: flex-start; */
+    
+    position: relative;
+     bottom: 5%;
+     left: 50%;
+     transform: translate(-50%, 0%);
+     width: 84%;
+     z-index: 2;
+
+    //  @media screen and (max-width: 800px) {
+    //  position: relative;
+    //  bottom: 5%;
+    //  left: 50%;
+    //  transform: translate(-50%, 0%);
+    //  width: 84%;
+    //  z-index: 2;
+    //  font-size: 5rem;
+    // }
+
+
+}
+
+.carousel-title{
+       font-size: 1.3rem;
+       font-weight: 600;
+       color: rgb(0, 0, 0);
+       text-decoration: none;
+
+            @media screen and (max-width: 800px) {
+        max-width: 85%;
+        padding: .5%;
+        padding-right: 19.5%;
+        padding-left: 1.5%;
+        font-size: .7rem;
+
+        // min-height: 100%;
+        // max-height: 100%;
+    }
+    @media screen and (max-width: 440px) {
+        
+        font-size: 0.5rem;
+    }
+}
+
+.carousel-title:hover {
+ 
+         /* color: orange; */
+         text-decoration: underline;
+         text-decoration-color: orange;
+         text-underline-offset: 8px;
+}
+
+.carousel-likes {
+    font-size: 110%;
+    font-weight: 400;
+    position: relative;
+     bottom: 5%;
+     left: 50%;
+     transform: translate(-50%, 0%);
+     width: 84%;
+     z-index: 2;
+     color: #000;
+
+      @media screen and (max-width: 800px) {
+        font-size: .7rem;
+    }
+
+    @media screen and (max-width: 440px) {
+        padding-bottom: 5%;
+        font-size: 0.5rem;
+    }
+}

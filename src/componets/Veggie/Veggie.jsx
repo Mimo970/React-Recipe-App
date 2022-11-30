@@ -3,7 +3,9 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
 import { Link } from "react-router-dom";
 import { AppContext } from "../useContext/useContext";
-import "./Veggie.css";
+import "./Veggie.scss";
+// import { ToastContainer, toast } from "react-toastify";
+// import "react-toastify/dist/ReactToastify.css";
 
 function Veggie() {
   const [vegetarianItems, setvegetarianItems] = useState([]);
@@ -29,39 +31,68 @@ function Veggie() {
   }
   const { isDarkModeOn, setIsDarkModeOn, toggleDarkMode } =
     useContext(AppContext);
+
+  // const notify = () =>
+  //   toast.info("Please fill out this field.", {
+  //     position: "top-right",
+  //     autoClose: 10000,
+  //     hideProgressBar: false,
+  //     closeOnClick: true,
+  //     pauseOnHover: true,
+  //     draggable: true,
+  //     progress: undefined,
+  //     theme: "colored",
+  //   });
+
   return (
-    <div className="carousel-Container">
-      <h3>Vegetarian Recipes</h3>
-      <Splide
-        options={{
-          perPage: 4,
-          arrows: true,
-          pagination: false,
-          drag: "free",
-          gap: "1rem",
-        }}
-      >
-        {vegetarianItems.map((item) => {
-          return (
-            <SplideSlide key={item.id}>
-              <div
-                className={`carousel-card ${
-                  isDarkModeOn ? "dark-carousel" : ""
-                }`}
-              >
-                <img src={item.image} alt="vegeterian food" />
-                <Link to={"/recipe/" + item.id}>
-                  <p className="carousel-title">{item.title}</p>
-                </Link>
-                <div className="carousel-likes">
-                  {item.aggregateLikes} Likes
+    <>
+      {/* <button onClick={notify}>Notify!</button>
+      <ToastContainer
+        position="top-right"
+        autoClose={10000}
+        limit={1}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      /> */}
+      <div className="carousel-Container">
+        <h3 className="veg-recipes-titles">Vegetarian Recipes</h3>
+        <Splide
+          options={{
+            perPage: 4,
+            arrows: true,
+            pagination: false,
+            drag: "free",
+            gap: "1rem",
+          }}
+        >
+          {vegetarianItems.map((item) => {
+            return (
+              <SplideSlide key={item.id}>
+                <div
+                  className={`carousel-card ${
+                    isDarkModeOn ? "dark-carousel" : ""
+                  }`}
+                >
+                  <img src={item.image} alt="vegeterian food" />
+                  <Link to={"/recipe/" + item.id}>
+                    <p className="carousel-title">{item.title}</p>
+                  </Link>
+                  <div className="carousel-likes">
+                    {item.aggregateLikes} Likes
+                  </div>
                 </div>
-              </div>
-            </SplideSlide>
-          );
-        })}
-      </Splide>
-    </div>
+              </SplideSlide>
+            );
+          })}
+        </Splide>
+      </div>
+    </>
   );
 }
 

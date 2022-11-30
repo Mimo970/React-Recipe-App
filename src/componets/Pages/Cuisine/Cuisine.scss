@@ -3,29 +3,40 @@
     margin-bottom: 3%;
 
 }
- 
+
+.mobile-title {
+    @media screen and (max-width: 800px) {
+        padding-top: 11% ;
+    }
+    @media screen and (max-width: 600px) {
+        padding-top: 15% ;
+        font-size: 1.4rem;
+    }
+    @media screen and (max-width: 350px) {
+        padding-top: 20% ;
+        font-size: 1.1rem;
+    }
+}
 
 #container {
     display: grid !important;
     grid-template-columns: repeat(4, 1fr)  !important;
     gap: 1.5rem !important;
-
+    
 }
 
-.dark-wrapper {
+.dark-cuisine-searched-wrapper {
     background-color: rgb(119, 119, 119) !important;
-
 }
  
 .wrapper { 
     display: grid; 
-    grid-auto-rows:minmax(300px, auto);
+    grid-auto-rows:minmax(100px, auto);
     min-width: 0%;
     /* max-width: 100%; */
     margin: 0%;
     padding: 0%;
-    /* background-color: aqua !important; */
-    /* background-color:rgb(255, 255, 255); */
+    background-color:rgb(255, 255, 255);
 }
 
 .card {
@@ -42,29 +53,20 @@
 }
 
 #title {
-    margin-top: 4%;
-    /* margin-left: 22%; */
-    color:rgb(0, 0, 0);
+    margin-top: .5%;
+    margin-left: 8%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color:black;
     text-decoration: none;
 }
 
 #title:hover {
     color: rgb(255, 175, 36);
     text-decoration: underline;
-    /* text-decoration: underline;
-    text-decoration-color: rgb(0, 255, 128);
-    text-underline-offset: 8px; */
 }
 
-.likes-wrapper {
-    display: flex;
-    flex-direction: row;
-    color: rgb(0, 0, 0);
-}
-
-#likes {
-    font-weight: 500;
-    margin-left: 8%;
-    margin-right: 1.5%;
-    color: rgb(0, 0, 0);
+.likes {
+    margin-left: 4%;
 }

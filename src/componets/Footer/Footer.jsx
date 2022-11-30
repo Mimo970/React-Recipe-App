@@ -1,7 +1,7 @@
 import React from "react";
 import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
 import { AiFillTwitterCircle, AiFillInstagram } from "react-icons/ai";
-import "./Footer.css";
+import "./Footer.scss";
 const Footer = () => {
   return (
     <div className="footer-container">
@@ -10,9 +10,9 @@ const Footer = () => {
           &copy; Alexander 2022. All rights reserved.
         </div>
         <div className="social-icons">
-          <FaFacebook className="social-icons" size={"25"} />
-          <AiFillTwitterCircle className="middle-icon" size={"25"} />
-          <AiFillInstagram className="social-icons" size={"25"} />
+          <FaFacebook className="social-icon" />
+          <AiFillTwitterCircle className="social-icon" />
+          <AiFillInstagram className="social-icon" />
         </div>
       </div>
     </div>

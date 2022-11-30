@@ -1,9 +1,13 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-import "./Cuisine.css";
+import "./Cuisine.scss";
 import { AppContext } from "../../useContext/useContext";
 function Cuisine() {
+  const [someMatches, setSomeMatches] = useState(
+    window.matchMedia("(max-width: 800px)").matches
+  );
+
   let params = useParams();
   const [cuisine, setCuisine] = useState([]);
 
@@ -28,30 +32,40 @@ function Cuisine() {
 
   const { isDarkModeOn, setIsDarkModeOn, toggleDarkMode } =
     useContext(AppContext);
+
+  useEffect(() => {
+    window
+      .matchMedia("(max-width: 800px)")
+      .addEventListener("change", (e) => setSomeMatches(e.matches));
+  }, []);
   return (
-    <div id="container">
-      {cuisine.map((item) => {
-        return (
-          <div
-            className={`wrapper ${
-              isDarkModeOn ? "dark-cuisine-searched-wrapper" : ""
-            }`}
-            key={item.id}
-          >
-            <div className="card">
-              <img
-                className="img"
-                src={item.image}
-                alt={params.type + "food"}
-              />
-              <Link id="title" to={"/recipe/" + item.id}>
-                <b>{item.title}</b>
-              </Link>
+    <>
+      {someMatches && <h1 className="mobile-title">{params.type}</h1>}
+
+      <div id="container">
+        {cuisine.map((item) => {
+          return (
+            <div
+              className={`wrapper ${
+                isDarkModeOn ? "dark-cuisine-searched-wrapper" : ""
+              }`}
+              key={item.id}
+            >
+              <div className="card">
+                <img
+                  className="img"
+                  src={item.image}
+                  alt={params.type + "food"}
+                />
+                <Link id="title" to={"/recipe/" + item.id}>
+                  <b>{item.title}</b>
+                </Link>
+              </div>
             </div>
-          </div>
-        );
-      })}
-    </div>
+          );
+        })}
+      </div>
+    </>
   );
 }
 

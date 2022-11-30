@@ -4,7 +4,7 @@ import React, { useState, useEffect, useContext } from "react";
 // import styled from "styled-components";
 import { AppContext } from "../useContext/useContext";
 import { Link } from "react-router-dom";
-import "./Popular.css";
+import "./Popular.scss";
 
 function Popular() {
   const [popularItems, setPopularItems] = useState([]);

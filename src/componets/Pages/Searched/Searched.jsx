@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { AppContext } from "../../useContext/useContext";
+import "./Searched.scss";
 const Searched = () => {
   const [searchedRecipes, setSearchedRecipes] = useState([]);
   let params = useParams();
@@ -25,78 +26,47 @@ const Searched = () => {
 
   const { isDarkModeOn, setIsDarkModeOn, toggleDarkMode } =
     useContext(AppContext);
+  console.log(searchedRecipes);
 
+  // const trimmedRecipes = searchedRecipes.trim();
+  // console.log(params);
   return (
-    // <div className="warpperthing">
-    //   {searchedRecipes.map((item) => {
-    //     return (
-    //       <div className="cardyty" key={item.id}>
-    //         <Link to={"/recipe/" + item.id}>
-    //           <img src={item.image} />
-    //           <h4>{item.title}</h4>
-    //         </Link>
-    //       </div>
-    //     );
-    //   })}
-    // </div>
-    <div id="container">
-      {searchedRecipes.map((item) => {
-        return (
-          <div
-            className={`wrapper ${
-              isDarkModeOn ? "dark-cuisine-searched-wrapper" : ""
-            }`}
-            key={item.id}
-          >
-            <div className="card">
-              <img className="img" src={item.image} alt="popular food" />
+    <div className="searched-container">
+      {searchedRecipes.length > 0 ? (
+        <div id="container">
+          {searchedRecipes.map((item) => {
+            return (
+              <div
+                className={`wrapper ${
+                  isDarkModeOn ? "dark-cuisine-searched-wrapper" : ""
+                }`}
+                key={item.id}
+              >
+                <div className="card">
+                  <img className="img" src={item.image} alt="popular food" />
 
-              <Link id="title" to={"/recipe/" + item.id}>
-                <b>{item.title}</b>
-              </Link>
+                  <Link id="title" to={"/recipe/" + item.id}>
+                    <b>{item.title}</b>
+                  </Link>
 
-              <div>
-                <p id="likes">{item.aggregateLikes} Likes</p>
+                  <div>
+                    <p id="likes">{item.aggregateLikes} Likes</p>
+                  </div>
+                </div>
               </div>
-            </div>
+            );
+          })}
+        </div>
+      ) : (
+        <div className="no-results-page">
+          <div>
+            <h1>0 results found for your search.</h1>
           </div>
-        );
-      })}
+          <h3>Please try another search term</h3>
+        </div>
+      )}
     </div>
-    // <div className="wrapper" key={item.id}>
-    //   <div className="card">
-    //     <img className="img" src={item.image} alt="popular food" />
-    //     <Link id="title" to={"recipe/" + item.id}>
-    //       <b>{item.title}</b>
-    //     </Link>
-    //     <div>
-    //       <p id="likes">{item.aggregateLikes} Likes</p>
-    //     </div>
-    //   </div>
-    // </div>
   );
 };
-
-// const Grid = styled.div`
-//   display: grid;
-//   grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-//   grid-gap: 3rem;
-// `;
-
-// const Wrapper = styled.div`
-//   display: grid;
-//   grid-template-columns: repeat(4, 1fr);
-//   gap: 2rem;
-//   margin-bottom: 3rem;
-// `;
-// const Card = styled.div`
-//   overflow: hidden;
-//   height: fit-content;
-//   text-align: center;
-//   img {
-//     border-radius: 10px;
-//     width: 100%;
-//   }
-// `;
 
 export default Searched;

@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import "./Category.css";
+import "./Category.scss";
 import { AppContext } from "../useContext/useContext";
 import React, { useContext } from "react";
 

@@ -1,0 +1,127 @@
+ .mobile-title {
+    
+ }
+
+
+.recipe-title {
+    margin: 0%;
+    padding: 0%;
+    margin-bottom: 2%;
+    @media screen and (max-width: 800px) {
+    padding-top: 15%;
+    }
+    @media screen and (max-width: 650px) {
+    padding-top: 15%;
+    padding-left: 0%;
+    }
+    @media screen and (max-width: 600px) {
+    padding-top: 20%;
+    padding-left: 0%;
+    }
+    @media screen and (max-width: 485px) {
+    padding-top: 25%;
+    padding-left: 0%;
+    // font-size: 115rem;
+    // font-weight: 400;
+    }
+    @media screen and (max-width: 400px) {
+    padding-top: 35%;
+    padding-left: 0%;
+    }
+}
+
+.container {
+    margin: 0%;
+    padding: 0%;
+    display: flex !important;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media screen and (max-width: 600px) {
+    font-size: .9rem !important;
+        padding: 1% 10%;
+    }
+}
+
+.details-image {
+    @media screen and (max-width: 650px) {
+    max-width: 105%;
+    padding-right: 15%;
+    padding-left: 0%;
+    }
+}
+
+.secondary-wrapper {
+    font-size: 100%;
+    
+}
+
+.time-info {
+    
+}
+
+.table-wrapper {
+    padding-top: 2%;
+    padding-bottom: 2%;
+    display: flex;
+    align-items: baseline;
+    /* font-size: 100%; */
+    flex-direction: row;
+}
+
+.time-info-table {
+    background-color: rgb(255, 255, 255);
+    width: 50%;
+    padding: 1%;
+    
+}
+
+.ingredients-wrapper {
+    margin-bottom: 3%;
+}
+
+.instructions-summary-wrapper h3 {
+    margin-top: 10%;
+}
+.instrutions-summary { 
+
+    
+}
+
+.instrutions-summary a { 
+    color: rgb(54, 134, 255);
+}
+
+.instructions-title {
+    font-size: 150%;
+    /* margin: 11%; */
+    margin-top: 1% !important;
+
+    @media screen and (max-width: 650px) {
+        font-size: 120%;
+        font-weight: 600;
+    }
+}  
+
+.ready-in {
+    font-size: 150%;
+    font-weight: 600;
+
+    @media screen and (max-width: 650px) {
+        font-size: 140%;
+        font-weight: 600;
+    }
+}
+
+.ready-in-minutes {
+    font-size: 110%;
+    margin-left: 1%;
+
+     @media screen and (max-width: 650px) {
+        font-size: 100%;
+        font-weight: 300;
+    }
+}

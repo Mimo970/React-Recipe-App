@@ -1,10 +1,16 @@
 import React, { useEffect, useState } from "react";
 // import styled from "styled-components";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import { useParams } from "react-router-dom";
-import "./Recipe.css";
+import "./Recipe.scss";
+
+// import { ToastContainer, toast } from "react-toastify";
+// import "react-toastify/dist/ReactToastify.css";
 
 const Recipe = () => {
   const { name } = useParams();
+
+  const mobileSizeRecipe = useMediaQuery("(max-width:650px");
 
   const [details, setDetails] = useState([]);
   // const [diet, setDiet] = useState([]);
@@ -19,12 +25,23 @@ const Recipe = () => {
   // };
 
   const summaryStyleObj = {
-    fontSize: "100%",
-    fontWeight: 400,
-    maxWidth: "fit-content",
-    marginTop: "1%",
-    marginbottom: "0%",
-    paddingBottom: "0%",
+    normal: {
+      fontSize: "100%",
+      fontWeight: 400,
+      maxWidth: "fit-content",
+      marginTop: "1%",
+      marginbottom: "0%",
+      paddingBottom: "0%",
+    },
+    mobile: {
+      fontSize: "100%",
+      fontWeight: 400,
+      minWidth: "min-content",
+      // maxWidth: "20rem",
+      marginTop: "1%",
+      paddingRight: "15%",
+      paddingLeft: "0%",
+    },
   };
 
   const instructionsStyleObj = {
@@ -47,42 +64,58 @@ const Recipe = () => {
     fetchDetails();
   }, [name]);
 
-  return (
-    <div className="container">
-      <div className="main-wrapper">
-        <h2 className="title">{details.title}</h2>
-        <h3
-          className="instrutions-summary"
-          dangerouslySetInnerHTML={{ __html: details.summary }}
-          style={summaryStyleObj}
-        ></h3>
-        <img src={details.image} alt="" />
-        <div className="secondary-wrapper">
-          <div className="table-wrapper">
-            <p className="ready-in">Ready In : </p>
-            <p className="ready-in-minutes">{details.readyInMinutes} Minutes</p>
-            {/* {details.diets && <h1>Diets:</h1>} */}
+  // const notify = () => {
+  //   toast("hollaa");
+  // };
 
-            {/* <div>{details.diets && <p>{details.diets}</p>}</div> */}
-          </div>
-          <b className="instructions-title">Ingredients</b>
-          <ul className="ingredients-wrapper">
-            {details.extendedIngredients?.map((ingredient) => {
-              return <li key={ingredient.id}>{ingredient.original}</li>;
-            })}
-          </ul>
+  return (
+    <>
+      {/* <ToastContainer />
+      <button onClick={notify}>hello</button> */}
+      <div className="container">
+        <div className="main-wrapper">
+          <h2 className="recipe-title">{details.title}</h2>
+          {/* <span>{`(min-width:650px) matches: ${
+            mobileSizeRecipe ? "under 650" : "over 650"
+          }`}</span> */}
           <b className="instructions-title">Summary</b>
-          <div className="instrutions-summary-wrapper">
-            <b className="instructions-title">Instructions</b>
-            <h3
-              className="instrutions-summary"
-              dangerouslySetInnerHTML={{ __html: details.instructions }}
-              style={instructionsStyleObj}
-            ></h3>
+          <h3
+            className="instrutions-summary"
+            dangerouslySetInnerHTML={{ __html: details.summary }}
+            style={
+              mobileSizeRecipe ? summaryStyleObj.mobile : summaryStyleObj.normal
+            }
+          ></h3>
+          <img className="details-image" src={details.image} alt="" />
+          <div className="secondary-wrapper">
+            <div className="table-wrapper">
+              <p className="ready-in">Ready In : </p>
+              <p className="ready-in-minutes">
+                {details.readyInMinutes} Minutes
+              </p>
+              {/* {details.diets && <h1>Diets:</h1>} */}
+
+              {/* <div>{details.diets && <p>{details.diets}</p>}</div> */}
+            </div>
+            <b className="instructions-title">Ingredients</b>
+            <ul className="ingredients-wrapper">
+              {details.extendedIngredients?.map((ingredient) => {
+                return <li key={ingredient.id}>{ingredient.original}</li>;
+              })}
+            </ul>
+
+            <div className="instrutions-summary-wrapper">
+              <b className="instructions-title">Instructions</b>
+              <h3
+                className="instrutions-summary"
+                dangerouslySetInnerHTML={{ __html: details.instructions }}
+                style={instructionsStyleObj}
+              ></h3>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
